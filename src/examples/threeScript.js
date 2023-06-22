@@ -21,7 +21,7 @@ async function fetchData(name) {
     const options = {
         method: 'GET',
         headers: {
-            'X-API-Key': 'WUT?'
+            'X-API-Key': 'wut?'
         }
     };    
     try {
@@ -230,7 +230,8 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Mercury']?.['name'] || 'Merkury') + '\n' + 'Masa:' + planetsInfo?.['Mercury']?.['mass'] + '\n' + (planetsInfo?.['Mercury']?.['siema']);
+                        //uzupelnienie zawartosci diva o informacje pobrane z API
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Mercury']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Mercury']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Mercury']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Mercury']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Mercury']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Mercury']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Mercury']?.['semi_major_axis'] + ' AU';
 
                         //dodanie diva
                         document.body.appendChild(infoDiv);
@@ -242,7 +243,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'To jest planeta: ' + (planetsInfo?.['Mercury']?.['name'] || 'Venus') + ' o masie: ' + planetsInfo?.['Mercury']?.['mass'];
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Venus']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Venus']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Venus']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Venus']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Venus']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Venus']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Venus']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Earth') {
@@ -252,7 +253,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'To jest planeta: ' + (planetsInfo?.['Mercury']?.['name'] || 'Earth') + ' o masie: ' + planetsInfo?.['Mercury']?.['mass'];
+                        infoDiv.textContent = 'Nazwa: ' + 'Księżyc' + '\n' + 'Masa: ' + '0.0123' + ' masy Jowisza'+ '\n' + 'Promień: ' + '1737.1' + ' km' + '\n' + 'Min. temperatura : ' + '40' +' K' + '\n' + 'Max. temperatura : ' + '396' +' K' + 'Okres orbitalny: ' + '27.3' + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + '0.00257' + ' AU' + '\n' + 'Półoś wielka: ' + '0.00257' + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Moon') {
@@ -262,7 +263,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'To jest planeta: ' + (planetsInfo?.['Mercury']?.['name'] || 'Moon') + ' o masie: ' + planetsInfo?.['Mercury']?.['mass'];
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Venus']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Venus']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Venus']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Venus']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Venus']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Venus']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Venus']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Mars') {
@@ -272,7 +273,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'To jest planeta: ' + (planetsInfo?.['Mercury']?.['name'] || 'Mars') + ' o masie: ' + planetsInfo?.['Mercury']?.['mass'];
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Mars']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Mars']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Mars']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Mars']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Mars']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Mars']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Mars']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Jupiter') {
@@ -282,7 +283,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'To jest planeta: ' + (planetsInfo?.['Mercury']?.['name'] || 'Jupitar') + ' o masie: ' + planetsInfo?.['Mercury']?.['mass'];
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Jupiter']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Jupiter']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Jupiter']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Jupiter']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Jupiter']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Jupiter']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Jupiter']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Saturn') {
@@ -292,7 +293,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'To jest planeta: ' + (planetsInfo?.['Mercury']?.['name'] || 'Saturn') + ' o masie: ' + planetsInfo?.['Mercury']?.['mass'];
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Saturn']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Saturn']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Saturn']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Saturn']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Saturn']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Saturn']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Saturn']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Uranus') {
@@ -302,7 +303,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'To jest planeta: ' + (planetsInfo?.['Mercury']?.['name'] || 'Venus') + ' o masie: ' + planetsInfo?.['Mercury']?.['mass'];
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Uranus']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Uranus']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Uranus']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Uranus']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Uranus']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Uranus']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Uranus']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Neptune') {
@@ -312,7 +313,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'To jest planeta: ' + (planetsInfo?.['Mercury']?.['name'] || 'Venus') + ' o masie: ' + planetsInfo?.['Mercury']?.['mass'];
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Neptune']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Neptune']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Neptune']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Neptune']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Neptune']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Neptune']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Neptune']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object === sunSphere) {
@@ -322,7 +323,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'To jest planeta: ' + (planetsInfo?.['Mercury']?.['name'] || 'Venus') + ' o masie: ' + planetsInfo?.['Mercury']?.['mass'];
+                        infoDiv.textContent = 'Nazwa: ' + 'Słońce' + '\n' + 'Masa: ' + '1047.56' + ' masy Jowisza'+ '\n' + 'Promień: ' + '6966340' + ' km' + '\n' + 'Śr. temperatura : ' + '5778' +' K' + '\n' + 'Odl. od Ziemi: ' + '1' + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                 });
@@ -528,7 +529,11 @@ function init() {
     // fetchData('Mercury');
     // fetchData('Venus');
     // fetchData('Earth');
+    // fetchData('Mars');
+    // fetchData('Jupiter');
+    // fetchData('Saturn');
     // fetchData('Uranus');
+    // fetchData('Neptune');
 
     //obsluga zmiany rozmiaru okna
     window.addEventListener(
