@@ -2,8 +2,10 @@
 <html>
 
 <head>
-  <title>My first Three.js app</title>
+  <title>Strona główna</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.cdnfonts.com/css/do-futuristic" rel="stylesheet">
+  <script src="nav.js" defer></script>
   <script type="importmap">
     {
       "imports": {
@@ -21,20 +23,27 @@
   <script src="threeScript.js" type="module"></script>
 </head>
 <body>
-  <header>
+  <header id="header" class="primary-header flex">
+    <div class="logo">
+      <h1>AstronomyBlog</h1>
+      <h2 class="subtitle">SeeYouOnTheOtherSite</h2>
+    </div>
+
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">Menu</span></button>
+
     <nav>
-      <ul>
-        <li><a href="#">Układ Słoneczny</a></li>
-        <li><a href="#">Słońce</a></li>
-        <li><a href="#">Merkury</a></li>
-        <li><a href="#">Wenus</a></li>
-        <li><a href="#">Ziemia</a></li>
-        <li><a href="#">Księżyc</a></li>
-        <li><a href="#">Mars</a></li>
-        <li><a href="#">Jowisz</a></li>
-        <li><a href="#">Saturn</a></li>
-        <li><a href="#">Uran</a></li>
-        <li><a href="#">Neptun</a></li>
+      <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+        <li><a href="#"><span aria-hidden="true">00</span>Układ Słoneczny</a></li>
+        <li><a href="#"><span aria-hidden="true">01</span>Słońce</a></li>
+        <li><a href="#"><span aria-hidden="true">02</span>Merkury</a></li>
+        <li><a href="#"><span aria-hidden="true">03</span>Wenus</a></li>
+        <li><a href="#"><span aria-hidden="true">04</span>Ziemia</a></li>
+        <li><a href="#"><span aria-hidden="true">05</span>Księżyc</a></li>
+        <li><a href="#"><span aria-hidden="true">06</span>Mars</a></li>
+        <li><a href="#"><span aria-hidden="true">07</span>Jowisz</a></li>
+        <li><a href="#"><span aria-hidden="true">08</span>Saturn</a></li>
+        <li><a href="#"><span aria-hidden="true">09</span>Uran</a></li>
+        <li><a href="#"><span aria-hidden="true">10</span>Neptun</a></li>
       </ul>
     </nav>
   </header>

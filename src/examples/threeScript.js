@@ -15,6 +15,7 @@ let controls;
 let mercuryObject, venusObject, earthObject, moonObject, marsObject, jupiterObject, saturnObject, uranusObject, neptuneObject,  saturnRingsObject, uranusRingsObject, neptuneRingsObject;
 const canvas = document.getElementsByTagName("canvas")[0]; //inicjalizacja elementu <canvas>
 let planetsInfo = {}; //tablica przechowujaca informacje o planetach, pobierane z API
+
 //funkcja asynchroniczna dla pobierania danych z API
 async function fetchData(name) {
     const url = 'https://api.api-ninjas.com/v1/planets?name=' + name;
@@ -119,9 +120,12 @@ function init() {
             const clickedObjects = [];
 
             function onMouseClick(event) {
+                //pobieranie wysokosci paska nawigacji
+                let navBar = document.querySelector('#header');
+                let navBarHeight =  navBar.offsetHeight;
                 //obliczanie wspolrzednych myszy na podstawie pozycji klikniecia
                 mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-                mouse.y = -((event.clientY - 61) / window.innerHeight) * 2 + 1; //przesuniecie o szer. navbara
+                mouse.y = -((event.clientY - navBarHeight) / window.innerHeight) * 2 + 1; //przesuniecie o szer. navbara
 
                 raycaster.setFromCamera(mouse, camera);
 
@@ -207,9 +211,12 @@ function init() {
             );
             let doesDivExist = false;    
             function onMouseOver(event) {
+                //pobieranie wysokosci paska nawigacji
+                let navBar = document.querySelector('#header');
+                let navBarHeight =  navBar.offsetHeight;
                 //obliczanie wspolrzednych myszy na podstawie pozycji najechania
                 mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-                mouse.y = -((event.clientY - 61) / window.innerHeight) * 2 + 1;
+                mouse.y = -((event.clientY - navBarHeight) / window.innerHeight) * 2 + 1;
 
                 raycaster.setFromCamera(mouse, camera);
 
@@ -228,7 +235,7 @@ function init() {
                         highlightSphere.scale.set(mercuryDefaultSize.x * sizeRatio, mercuryDefaultSize.y * sizeRatio, mercuryDefaultSize.z * sizeRatio);
                         highlightSphere.position.copy(mercuryObject.position);
                         scene.add(highlightSphere);
-
+                        
                         doesDivExist = true;
                         //uzupelnienie zawartosci diva o informacje pobrane z API
                         infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Mercury']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Mercury']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Mercury']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Mercury']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Mercury']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Mercury']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Mercury']?.['semi_major_axis'] + ' AU';
@@ -243,7 +250,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Venus']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Venus']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Venus']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Venus']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Venus']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Venus']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Venus']?.['semi_major_axis'] + ' AU';
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Venus']?.['name'] || 'Wenus') + '\n' + 'Masa: ' + planetsInfo?.['Venus']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Venus']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Venus']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Venus']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Venus']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Venus']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Earth') {
@@ -253,7 +260,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'Nazwa: ' + 'Księżyc' + '\n' + 'Masa: ' + '0.0123' + ' masy Jowisza'+ '\n' + 'Promień: ' + '1737.1' + ' km' + '\n' + 'Min. temperatura : ' + '40' +' K' + '\n' + 'Max. temperatura : ' + '396' +' K' + 'Okres orbitalny: ' + '27.3' + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + '0.00257' + ' AU' + '\n' + 'Półoś wielka: ' + '0.00257' + ' AU';
+                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Earth']?.['name'] || 'Ziemia') + '\n' + 'Masa: ' + planetsInfo?.['Venus']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Venus']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Venus']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Venus']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Venus']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Venus']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Moon') {
@@ -263,7 +270,7 @@ function init() {
                         scene.add(highlightSphere);
 
                         doesDivExist = true;
-                        infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Venus']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Venus']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Venus']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Venus']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Venus']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Venus']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Venus']?.['semi_major_axis'] + ' AU';
+                        infoDiv.textContent = 'Nazwa: ' + 'Księżyc' + '\n' + 'Masa: ' + '0.0123' + ' masy Jowisza'+ '\n' + 'Promień: ' + '1737.1' + ' km' + '\n' + 'Min. temperatura : ' + '40' +' K' + '\n' + 'Max. temperatura : ' + '396' +' K' + 'Okres orbitalny: ' + '27.3' + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + '0.00257' + ' AU' + '\n' + 'Półoś wielka: ' + '0.00257' + ' AU';
                         document.body.appendChild(infoDiv);
                     }
                     if (intersect.object.name === 'Mars') {
@@ -291,7 +298,7 @@ function init() {
                         highlightSphere.scale.set(saturnDefaultSize.x * sizeRatio, saturnDefaultSize.y * sizeRatio, saturnDefaultSize.z * sizeRatio);
                         highlightSphere.position.copy(saturnObject.position);
                         scene.add(highlightSphere);
-
+                        console.log(navBarHeight);
                         doesDivExist = true;
                         infoDiv.textContent = 'Nazwa: ' + (planetsInfo?.['Saturn']?.['name'] || 'Merkury') + '\n' + 'Masa: ' + planetsInfo?.['Saturn']?.['mass'] + ' masy Jowisza'+ '\n' + 'Promień: ' + planetsInfo?.['Saturn']?.['radius']*69911 + ' km' + '\n' + 'Śr. temperatura : ' + planetsInfo?.['Saturn']?.['temperature'] +' K' + '\n' + 'Okres orbitalny: ' + planetsInfo?.['Saturn']?.['period'] + ' dni ziemskich' + '\n' + 'Odl. od Ziemi: ' + planetsInfo?.['Saturn']?.['distance_light_year'] + ' ly' + '\n' + 'Półoś wielka: ' + planetsInfo?.['Saturn']?.['semi_major_axis'] + ' AU';
                         document.body.appendChild(infoDiv);
