@@ -39,21 +39,3 @@ footerPlanetImages.forEach(image => {
         image.setAttribute('src', originalSrc);
     });
 });
-
-const accordions = document.querySelectorAll('.accordion');
-
-accordions.forEach(accordion => {
-  const heading = accordion.querySelector('.accordion-heading');
-  const content = accordion.querySelector('.accordion-content');
-  const contentWrapper = accordion.querySelector('.accordion-content-wrapper');
-
-  heading.addEventListener('click', () => {
-    accordion.classList.toggle('active');
-
-    if (accordion.classList.contains('active')) {
-      contentWrapper.style.maxHeight = contentWrapper.scrollHeight + 'px';
-    } else {
-      contentWrapper.style.maxHeight = '0';
-    }
-  });
-});
